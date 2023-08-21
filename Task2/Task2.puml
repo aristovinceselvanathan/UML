@@ -1,0 +1,49 @@
+@startuml OnlineShoppingSystem
+
+
+left to right direction
+skinparam packageStyle rectangle
+
+actor Customer #green
+actor "Admin" #lightblue
+actor "SystemUser" #LightCoral
+actor "Dealers" #LightYellow
+
+rectangle "Online Shopping System" {
+  Customer --|> (Manage user and Application)
+  Customer --|> (Manage Confirm Order)
+  Customer --|> (Manage Delivery)
+  Customer --|> (Search for Products)
+  Customer --|> (Add to Cart)
+  Customer --|> (Make Payment)
+  Customer --|> (Login and Logout from System)
+  Customer --|> (Update my profile)
+  Customer --|> (Change account password)
+  Dealers --|> (Login and Logout from System)
+  Dealers --|> (Update my profile)
+  Dealers --|> (Change account password)
+  Customer --|> (Manage Product)
+  Customer --|> (Manage Payment)
+  Customer --|> (Manage Shopping Cart)
+  Dealers --|> (Add Products)
+  Dealers --|> (Update stocks)
+  Dealers --|> (Add Discounts)
+  (Login and Logout from System) --|> Admin
+  (Update my profile) --|> Admin
+  (Change account password) --|> Admin
+  (Login and Logout from System) --|> SystemUser
+  (Update my profile) --|> SystemUser
+  (Change account password) --|> SystemUser
+  (Manage user and Application) --|> Admin
+  (Manage Confirm Order) --|> Admin
+  (Manage Delivery) --|> Admin
+  (Manage Product) --|> Admin
+  (Manage Payment) --|> Admin
+  (Manage Shopping Cart) --|> Admin
+  (Manage Product) --|> SystemUser
+  (Manage Payment) --|> SystemUser
+  (Manage Shopping Cart) --|> SystemUser
+  (Manage Confirm Order) --|> SystemUser
+}
+
+@enduml

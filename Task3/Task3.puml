@@ -1,0 +1,20 @@
+@startuml Online Shopping
+ 
+title Online Shopping 
+actor User #DarkRed
+participant dashboard #SlateBlue
+participant Cart #Yellow
+participant Bill #OrangeRed
+participant PaymentMode #Beige
+participant PaymentGateway #BlanchedAlmond
+User -> dashboard: Searches product
+dashboard -> Cart : Adds products
+Cart -> Bill :Checkout  
+Bill -> PaymentMode : Continue for payment mode
+PaymentMode -> PaymentGateway : Select mode of payment
+Activate PaymentGateway #BlanchedAlmond
+User -> PaymentGateway : Enter Credentials/password
+PaymentGateway -> User : Confirmation of payment via OTP/Confirmation code
+User -> PaymentGateway : Enters the OTP/Confirmation code
+PaymentGateway -> dashboard : Order confirmation details/ Continue shopping
+@enduml

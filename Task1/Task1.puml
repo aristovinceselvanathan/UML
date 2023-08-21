@@ -1,0 +1,104 @@
+@startuml Online Shopping
+Customer <|-- User
+Customer -|> Account
+Account <|-- Cart
+Account <|-- Order
+Account -|> Category
+Category --|> Product
+Account --- Payment
+Payment <|- Order
+Cart <|-- Product
+Order <|-- Cart
+Checkout <|-- Payment
+WishList --- Account
+Account --|> User
+User -|> SecurityFeatures
+Account --- Return
+Checkout --> Return
+Cart -|> WishList
+class Account{
+    +Name : String
+    +Email : String
+    +Phone_No : String
+    +Address : String
+    +void SetAddress()
+}
+class User{
+    +UserID : String
+    +Password : Int
+    +void Authenticate()
+}
+class Customer {
+    +Id: string
+    +Name: String
+    +Address : String
+    +Age: int
+    +String GetCustomerName()
+    +Int GetCustomerId()
+}
+class Category
+{
+    +Electronics : String
+    +Home Applications : String
+    +Fashion : String
+    +Grocery : String
+    +Books : String
+    +void SelectCategory()
+}
+class Product {
+    +Product_Id : int
+    +Product_Name : String
+    +Price : int
+    +Product_Category : String
+    +Product_Description : String
+    +Product_Expiry : String
+    +Quantity : int
+    +int getPriceById()
+}
+class Return
+{
+    +Product_Id : int
+    +Return_Period : int
+    +void Return_Product()
+}
+class SecurityFeatures{
+    +Password : String
+    +void SetName()
+    +void SetEmail()
+    +void SetPhone_No()
+    +void ChangePassword()
+    +void TwoStepVerification()
+}
+class Checkout {
+    +Products : List<Product>
+    +Quantity : int
+}
+class Order {
+    +Order_Id : int
+    +Order_Date : String
+    +Order_Value : int
+    +void Confirmation()
+}
+
+class Cart {
+    +Products : List<Product>
+    +Total_Price : int
+    +void addItems()
+    +void removeItems()
+    +void getprice()
+}
+
+class Payment
+{
+    +Total_Value: int
+    +Confirmation : int
+    +void PaymentMethod()
+    +void PaymentConfirmation()
+}
+
+class WishList
+{
+    +Products : List<Product>
+    +Count : int
+}
+@enduml
